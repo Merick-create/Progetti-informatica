@@ -1,16 +1,27 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AtleteComponentComponent } from './Components/atlete-component/atlete-component.component';
+import { CalendarComponentComponent } from './Components/calendar-component/calendar-component.component';
+import { HomeComponentComponent } from './Components/home-component/home-component.component';
+import { HttpClientModule } from '@angular/common/http';
+import { SquadraComponent } from './Components/squadra/squadra.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AtleteComponentComponent,
+    CalendarComponentComponent,
+    HomeComponentComponent,
+    SquadraComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule, 
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

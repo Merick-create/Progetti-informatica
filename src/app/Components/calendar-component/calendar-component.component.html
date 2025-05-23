@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="calendar-component.component.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body>
+  <div class="main-container">
+    <div class="navbar-left">
+        <img src="assets/images/pngtree-white-house-architecture-design-image_1335029-removebg-preview.png" id="home-img">
+        <div class="home"> <label>Home</label></div>
+
+        <img src="assets/images/depositphotos_232794498-stock-illustration-simple-calendar-icon-white-icon-removebg-preview.png" id="calendar-image">
+        <div class="calendar" ><button routerLink="calendar" class="button">Calendar</button></div>
+
+         <img src="assets/images/25851934-bianca-icona-di-corridore-silhouette-su-nero-sfondo-sport-logo-modello-jogging-o-salto-moderno-logotipo-concetto-magliette-stampa-tatuagg-removebg-preview.png" id="atleta-img" style="width: 100%;">
+        <div class="gestisci-atlete"><button routerLink="atlete" class="button btn btn-link">Gestisci Atlete</button></div>
+
+        <img src="assets/images/5298178-icona-colore-bianco-concetto-di-squadra-lavorare-insieme-vettoriale-removebg-preview.png" id="squad-image" style="width: 100%;">
+        <div class="gestisci-squadre"><button routerLink="squadre" class="button btn btn-link">Gestisci Squadre</button></div>
+
+        <img src="../../../assets/images/39361120-pallavolo-palla-gioco-partita-icona-dello-sport-immagine-vettoriale-può-essere-utilizzato-anche-removebg-preview.png" id="workout-img">
+        <div class="programma-allenamenti"><label>Allenamenti</label></div>   
+    </div>
+
+   
+    <div class="calendar-wrapper">
+        <h2>Calendario Allenamenti</h2>
+        <div class="calendar2" id="calendario">
+          <div class="header"></div>
+          <div class="header">Lunedì</div>
+          <div class="header">Martedì</div>
+          <div class="header">Mercoledì</div>
+          <div class="header">Giovedì</div>
+          <div class="header">Venerdì</div>
+          <div class="header">Sabato</div>
+          <div class="header">Domenica</div>
+        </div>
+      </div>
+  </div>
+    <script>
+      const calendario = document.getElementById('calendario');
+      for (let hour = 8; hour <= 20; hour++) {
+        const orario = document.createElement('div');
+        orario.className = 'hour';
+        orario.textContent = `${hour}:00`;
+        calendario.appendChild(orario);
+
+        for (let i = 0; i < 7; i++) {
+          const cella = document.createElement('div');
+          cella.className = 'cell';
+          cella.onclick = () => {
+            cella.classList.toggle('active');
+            const giorno = ["Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato", "Domenica"][i];
+            alert(`Hai cliccato ${giorno} alle ${hour}:00`);
+          };
+          calendario.appendChild(cella);
+        }
+      }
+    </script>
+</body>
+</html>
+

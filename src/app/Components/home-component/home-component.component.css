@@ -1,0 +1,87 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+.navbar-left{
+    width: 275px;
+    height: 729px;
+    background-color: hsl(240, 100%, 15%);
+}
+#home-img{
+    width: 40px;
+    height: 40px;
+    margin-top: 60px;
+    margin-left: 20px;
+}
+.home{
+    font-size: 17px;
+    color:white;
+    margin-left: 90px;
+    margin-top: -30px;
+}
+#calendar-image{
+    width: 40px;
+    height: 40px;
+    margin-left: 20px;
+    margin-top:60px
+}
+.calendar{
+    font-size: 17px;
+    color: white;
+    margin-left: 90px;
+    margin-top: -32px;
+}
+#atleta-img{
+    width: 70px;
+    height: 70px;
+    margin-top: 40px;
+}
+.gestisci-atlete{
+    font-size: 17px;
+    color: white;
+    margin-left: 90px;
+    margin-top: -47px;
+}
+#squad-image{
+    width: 40px;
+    height: 40px;
+    margin-top: 60px;
+    margin-left: 20px;
+}
+.gestisci-squadre{
+    font-size: 17px;
+    color: white;
+    margin-left: 90px;
+    margin-top: -35px;
+}
+#workout-img{
+    width: 40px;
+    height: 40px;
+    margin-top: 60px;
+    margin-left: 20px;
+}
+.programma-allenamenti{
+    font-size: 17px;
+    color: white;
+    margin-left: 90px;
+    margin-top: -35px;
+}
+.button{
+    background: none;
+    border: none;
+    color: white; 
+    cursor: pointer;
+    font-size: 17px;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+}

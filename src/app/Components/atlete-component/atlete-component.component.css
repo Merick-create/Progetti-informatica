@@ -1,0 +1,277 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+.navbar-left{
+    position: relative;
+    width: 275px;
+    height: 729px;
+    background-color: hsl(240, 100%, 15%);
+}
+#home-img{
+    width: 40px;
+    height: 40px;
+    margin-top: 60px;
+    margin-left: 20px;
+}
+.home{
+    font-size: 17px;
+    color:white;
+    margin-left: 90px;
+    margin-top: -30px;
+}
+#calendar-image{
+    width: 40px;
+    height: 40px;
+    margin-left: 20px;
+    margin-top:60px
+}
+.calendar{
+    font-size: 17px;
+    color: white;
+    margin-left: 90px;
+    margin-top: -32px;
+}
+#atleta-img{
+    width: 70px;
+    height: 70px;
+    margin-top: 40px;
+}
+.gestisci-atlete{
+    font-size: 17px;
+    color: white;
+    margin-left: 90px;
+    margin-top: -47px;
+}
+#squad-image{
+    width: 40px;
+    height: 40px;
+    margin-top: 60px;
+    margin-left: 20px;
+}
+.gestisci-squadre{
+    font-size: 17px;
+    color: white;
+    margin-left: 90px;
+    margin-top: -35px;
+}
+#workout-img{
+    width: 40px;
+    height: 40px;
+    margin-top: 60px;
+    margin-left: 20px;
+}
+.programma-allenamenti{
+    font-size: 17px;
+    color: white;
+    margin-left: 90px;
+    margin-top: -35px;
+}
+.button{
+    background: none;
+    border: none;
+    color: white; 
+    cursor: pointer;
+    font-size: 17px;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+}
+.main-container {
+  display: flex;
+  height: 100vh;
+}
+
+.content-right {
+  flex: 1;
+  position: relative;
+  padding: 20px;
+}
+
+.add-athlete-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #008CBA;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 50px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  z-index: 1000;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.athlete-card {
+  background: #f5f5f5;
+  border-radius: 12px;
+  padding: 16px;
+  width: 250px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.form-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* sfondo semi-trasparente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.form-container form {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-container h2 {
+  margin-bottom: 1rem;
+  text-align: center;
+  color: #333;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.form-container input {
+  padding: 0.75rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.2s ease;
+}
+
+.form-container input:focus {
+  border-color: #4caf50;
+  outline: none;
+}
+
+.form-container button[type="submit"] {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.form-container button[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+.form-container button[type="button"] {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.form-container button[type="button"]:hover {
+  background-color: #d32f2f;
+}
+
+.filter-box {
+  background-color: #f8f9fa;
+  padding: 1rem 1.5rem;
+  margin-bottom: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.filter-box label {
+  font-weight: 600;
+  margin-right: 0.5rem;
+}
+
+.filter-box input,
+.filter-box select,
+.filter-box button {
+  padding: 0.5rem 0.8rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.filter-box button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.filter-box button:hover {
+  background-color: #0056b3;
+}
+
+/* Container delle Card */
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Singola Card */
+.athlete-card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.athlete-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.athlete-card h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.athlete-card p {
+  margin: 0;
+  color: #555;
+  font-size: 0.95rem;
+}

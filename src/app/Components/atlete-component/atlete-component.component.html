@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="atlete-component.component.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <div class="main-container">
+    <div class="navbar-left">
+      <img src="assets/images/pngtree-white-house-architecture-design-image_1335029-removebg-preview.png" id="home-img">
+      <div class="home"><label>Home</label></div>
+
+      <img src="assets/images/depositphotos_232794498-stock-illustration-simple-calendar-icon-white-icon-removebg-preview.png" id="calendar-image">
+      <div class="calendar"><button routerLink="calendar" class="button">Calendar</button></div>
+
+      <img src="assets/images/25851934-bianca-icona-di-corridore-silhouette-su-nero-sfondo-sport-logo-modello-jogging-o-salto-moderno-logotipo-concetto-magliette-stampa-tatuagg-removebg-preview.png" id="atleta-img" style="width: 100%;">
+      <div class="gestisci-atlete"><button routerLink="atlete" class="button btn btn-link">Gestisci Atlete</button></div>
+
+      <img src="assets/images/5298178-icona-colore-bianco-concetto-di-squadra-lavorare-insieme-vettoriale-removebg-preview.png" id="squad-image" style="width: 100%;">
+      <div class="gestisci-squadre"><button routerLink="squadre" class="button btn btn-link">Gestisci Squadre</button></div>
+
+      <img src="../../../assets/images/39361120-pallavolo-palla-gioco-partita-icona-dello-sport-immagine-vettoriale-può-essere-utilizzato-anche-removebg-preview.png" id="workout-img">
+      <div class="programma-allenamenti"><label>Allenamenti</label></div>
+    </div>
+    <div class="content-right">
+      <button class="add-athlete-btn" (click)="openAddModal()">➕ Aggiungi Atleta</button>
+      <div *ngIf="showAddModal" class="form-container">
+        <form (ngSubmit)="submitForm()" #form="ngForm">
+          <input type="text" name="name" [(ngModel)]="atleta.name" placeholder="Nome" required>
+          <input type="text" name="lastname" [(ngModel)]="atleta.lastname" placeholder="Cognome" required>
+          <input type="number" name="age" [(ngModel)]="atleta.age" placeholder="Età" required>
+          <input type="text" name="rule" [(ngModel)]="atleta.rule" placeholder="Ruolo" required>
+          <input type="text" name="phone_number" [(ngModel)]="atleta.phone_number" placeholder="Telefono" required>
+          <input type="number" name="year_subscribe" [(ngModel)]="atleta.year_subscribe" placeholder="Anno iscrizione" required>
+          <button type="submit">Salva</button>
+          <button type="button" (click)="showAddModal = false">Annulla</button>
+        </form>
+      </div>
+
+    <div class="filter-box">
+        <h3>Filtra Atlete</h3>
+            <form (ngSubmit)="filterAtlete()" #filterForm="ngForm">
+            <input type="number" name="age" [(ngModel)]="filter.age" placeholder="Età">
+            <input type="text" name="rule" [(ngModel)]="filter.rule" placeholder="Ruolo">
+            <button type="submit">Applica Filtro</button>
+            </form>
+    </div>
+
+    <div class="card-container">
+        <div *ngIf="filteredAtlete.length === 0" class="no-results">Nessuna atleta trovata.</div>
+
+    <div class="athlete-card" *ngFor="let atleta of filteredAtlete">
+        <h3>{{ atleta.name }} {{ atleta.lastname }}</h3>
+        <p>Età: {{ atleta.age }}</p>
+        <p>Ruolo: {{ atleta.rule }}</p>
+        <p>Telefono: {{ atleta.phone_number }}</p>
+        <p>Anno iscrizione: {{ atleta.year_subscribe }}</p>
+    </div>
+    </div>
+        </div>
+    </div>
+    </body>
+    </html>
