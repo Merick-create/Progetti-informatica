@@ -9,7 +9,7 @@ const routes: Routes = [
   {path:'',component:HomeComponentComponent},
   {path:'calendar',component:CalendarComponentComponent},
   {path:'atlete',component:AtleteComponentComponent},
-  {path:'squadre',component:SquadraComponent}
+  {path:'squadre',component:SquadraComponent},
 ];
 
 @NgModule({

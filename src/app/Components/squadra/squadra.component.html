@@ -1,21 +1,22 @@
 <div class="navbar-left">
   <img src="assets/images/pngtree-white-house-architecture-design-image_1335029-removebg-preview.png" id="home-img">
-  <div class="home"><label>Home</label></div>
+  <div class="home"><label class="label-text">Home</label></div>
 
   <img src="assets/images/depositphotos_232794498-stock-illustration-simple-calendar-icon-white-icon-removebg-preview.png" id="calendar-image">
-  <div class="calendar"><button routerLink="calendar" class="button">Calendar</button></div>
+  <div class="calendar"><button routerLink="/calendar" class="button">Calendar</button></div>
 
   <img src="assets/images/25851934-bianca-icona-di-corridore-silhouette-su-nero-sfondo-sport-logo-modello-jogging-o-salto-moderno-logotipo-concetto-magliette-stampa-tatuagg-removebg-preview.png" id="atleta-img">
-  <div class="gestisci-atlete"><button routerLink="atlete" class="button">Gestisci Atlete</button></div>
+  <div class="gestisci-atlete"><button routerLink="/atlete" class="button">Gestisci Atlete</button></div>
 
-  <img src="../../../assets/images/5298178-icona-colore-bianco-concetto-di-squadra-lavorare-insieme-vettoriale-removebg-preview.png" id="squad-image">
-  <div class="gestisci-squadre"><button routerLink="squadre" class="button btn btn-link">Gestisci Squadre</button></div>
+  <img src="assets/images/5298178-icona-colore-bianco-concetto-di-squadra-lavorare-insieme-vettoriale-removebg-preview.png" id="squad-image">
+  <div class="gestisci-squadre"><button routerLink="/squadre" class="button">Gestisci Squadre</button></div>
 
-  <img src="../../../assets/images/39361120-pallavolo-palla-gioco-partita-icona-dello-sport-immagine-vettoriale-può-essere-utilizzato-anche-removebg-preview.png" id="workout-img">
-  <div class="programma-allenamenti"><label>Allenamenti</label></div>
+  <img src="assets/images/39361120-pallavolo-palla-gioco-partita-icona-dello-sport-immagine-vettoriale-può-essere-utilizzato-anche-removebg-preview.png" id="workout-img">
+  <div class="programma-allenamenti"><label class="label-text">Allenamenti</label></div>
 </div>
-<div style="margin-left: 260px; padding: 40px; background: #f8f9fa; min-height: 100vh;">
-  <div style="max-width: 700px; margin: auto; background: white; padding: 30px; border-radius: 16px; box-shadow: 0 0 20px rgba(0,0,0,0.1);">
+
+<div class="main-content">
+  <div class="card-container">
     <h2 class="mb-4 text-center text-primary">Elenco Squadre</h2>
 
     <ul class="list-group mb-4">
@@ -29,13 +30,23 @@
       {{ showForm ? 'Annulla' : '➕ Aggiungi Squadra' }}
     </button>
 
-    <div *ngIf="showForm">
+    <div *ngIf="showForm" class="position-relative">
       <input [(ngModel)]="nuovaSquadra.name" class="form-control mb-3" placeholder="Nome squadra" />
+      <button class="btn btn-info mb-3" (click)="toggleAtletaList()">👀 Mostra Atlete</button>
+      <div *ngIf="showAtleteList" class="atlete-list-box">
+        <h5 class="mb-2 text-center">Seleziona Atlete</h5>
+        <div class="list-group">
+          <button
+            *ngFor="let atleta of elencoAtlete"
+            class="list-group-item list-group-item-action"
+            [class.active]="isSelected(atleta.id)"
+            (click)="toggleAtletaSelection(atleta.id)">
+            {{ atleta.name }} {{ atleta.lastname }}
+          </button>
+        </div>
+      </div>
 
-      <input class="form-control mb-3" placeholder="ID atlete separati da virgola"
-             (input)="onAtleteInputChange($event)" />
-
-      <button class="btn btn-success w-100" (click)="aggiungiSquadra()">✅ Salva</button>
+      <button class="btn btn-success w-100 mt-3" (click)="aggiungiSquadra()">✅ Salva</button>
     </div>
   </div>
 </div>
