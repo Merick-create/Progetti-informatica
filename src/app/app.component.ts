@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { AuthService } from '../app/services/auth.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'frontend-squadre';
+ constructor(private authService: AuthService) {}
+
+  isLoggedIn(): boolean {
+    return this.authService.isLoggedIn();
+  }
 }

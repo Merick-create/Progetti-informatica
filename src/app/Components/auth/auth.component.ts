@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-auth',
@@ -14,7 +15,9 @@ export class AuthComponent {
   loginForm!: FormGroup;
   registerForm!: FormGroup;
 
-  constructor(private fb: FormBuilder, private authService: AuthService) {}
+  constructor( private fb: FormBuilder,
+    private authService: AuthService,
+    private router: Router) {}
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
@@ -35,14 +38,19 @@ export class AuthComponent {
     this.isLoginMode = !this.isLoginMode;
   }
 
-  onLogin() {
-    if (this.loginForm.invalid) return;
-
-    const { email, password } = this.loginForm.value;
-    this.authService.login(email!, password!).subscribe({
-      next: res => console.log('Login ok', res),
-      error: err => console.error('Errore login', err)
-    });
+   onLogin() {
+    if (this.loginForm.valid) {
+      this.authService.login(this.loginForm.value).subscribe({
+        next: (res) => {
+          this.authService.saveToken(res.token);
+          this.router.navigate(['/home']); // dopo login vai in home
+        },
+        error: (err) => {
+          console.error('Errore login', err);
+          alert('Credenziali non valide');
+        },
+      });
+    }
   }
 
   onRegister() {

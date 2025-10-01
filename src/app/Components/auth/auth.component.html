@@ -1,11 +1,15 @@
 <div class="auth-container">
-  <h2 *ngIf="isLoginMode">Login</h2>
-  <h2 *ngIf="!isLoginMode">Registrazione</h2>
-  <form *ngIf="isLoginMode" [formGroup]="loginForm" (ngSubmit)="onLogin()">
-    <input formControlName="email" placeholder="Email" type="email" />
-    <input formControlName="password" placeholder="Password" type="password" />
-    <button type="submit" [disabled]="loginForm.invalid">Login</button>
+  <div class="login-container">
+  <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+    <label>Email</label>
+    <input formControlName="username" type="text" />
+
+    <label>Password</label>
+    <input formControlName="password" type="password" />
+
+    <button type="submit">Login</button>
   </form>
+</div>
 
   <form *ngIf="!isLoginMode" [formGroup]="registerForm" (ngSubmit)="onRegister()">
     <input formControlName="name" placeholder="Nome" />
