@@ -1,0 +1,23 @@
+<div class="auth-container">
+  <h2 *ngIf="isLoginMode">Login</h2>
+  <h2 *ngIf="!isLoginMode">Registrazione</h2>
+  <form *ngIf="isLoginMode" [formGroup]="loginForm" (ngSubmit)="onLogin()">
+    <input formControlName="email" placeholder="Email" type="email" />
+    <input formControlName="password" placeholder="Password" type="password" />
+    <button type="submit" [disabled]="loginForm.invalid">Login</button>
+  </form>
+
+  <form *ngIf="!isLoginMode" [formGroup]="registerForm" (ngSubmit)="onRegister()">
+    <input formControlName="name" placeholder="Nome" />
+    <input formControlName="lastname" placeholder="Cognome" />
+    <input formControlName="email" placeholder="Email" type="email" />
+    <input formControlName="password" placeholder="Password" type="password" />
+    <input formControlName="confirmPassword" placeholder="Conferma Password" type="password" />
+    <button type="submit" [disabled]="registerForm.invalid">Registrati</button>
+  </form>
+
+  <p (click)="toggleMode()" class="toggle">
+    {{ isLoginMode ? 'Non hai un account? Registrati' : 'Hai già un account? Fai login' }}
+  </p>
+</div>
+
