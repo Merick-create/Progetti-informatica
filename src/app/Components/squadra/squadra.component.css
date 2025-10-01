@@ -1,103 +1,12 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
-html, body {
-  width: 100%;
-  height: 100%;
-  font-family: Arial, sans-serif;
-  overflow-x: hidden;
-  background-color: #f8f9fa;
-}
 
-.navbar-left {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 275px;
-  height: 100%;
-  background-color: hsl(240, 100%, 15%);
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  z-index: 1000;
-}
-
-#home-img{
-    width: 40px;
-    height: 40px;
-    margin-top: 60px;
-    margin-left: 20px;
-}
-.home{
-    font-size: 17px;
-    color:white;
-    margin-left: 90px;
-    margin-top: -30px;
-}
-#calendar-image{
-    width: 40px;
-    height: 40px;
-    margin-left: 20px;
-    margin-top:60px
-}
-.calendar{
-    font-size: 17px;
-    color: white;
-    margin-left: 90px;
-    margin-top: -32px;
-}
-#atleta-img{
-    width: 70px;
-    height: 70px;
-    margin-top: 40px;
-}
-.gestisci-atlete{
-    font-size: 17px;
-    color: white;
-    margin-left: 90px;
-    margin-top: -47px;
-}
-#squad-image{
-    width: 40px;
-    height: 40px;
-    margin-top: 60px;
-    margin-left: 20px;
-}
-.gestisci-squadre{
-    font-size: 17px;
-    color: white;
-    margin-left: 90px;
-    margin-top: -35px;
-}
-#workout-img{
-    width: 40px;
-    height: 40px;
-    margin-top: 60px;
-    margin-left: 20px;
-}
-.programma-allenamenti{
-    font-size: 17px;
-    color: white;
-    margin-left: 90px;
-    margin-top: -35px;
-}
-.button {
-  background: none;
-  border: none;
-  color: white;
-  cursor: pointer;
-  font-size: 17px;
-  padding: 0;
-  text-align: left;
-}
 .main-content {
-  margin-left: 300px;
   padding: 50px 40px;
   min-height: 100vh;
   max-width: 1200px;
+  margin: 0 auto;
+  margin-left: 280px;
+  margin-top: -750px;
 }
 
 .card-container {
@@ -187,4 +96,44 @@ button.btn-success:hover {
   background-color: #00bcd4;
   border-color: #00bcd4;
   color: white;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.modal-box {
+  background: white;
+  border-radius: 16px;
+  padding: 30px;
+  width: 400px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.modal-box h5 {
+  font-size: 20px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.editor-popup {
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.list-group-item.active {
+  background-color: #d1e7dd;
+  font-weight: bold;
 }

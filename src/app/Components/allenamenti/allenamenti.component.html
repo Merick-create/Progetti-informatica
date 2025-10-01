@@ -1,0 +1,53 @@
+<div class="allenamenti-container">
+  <div class="form-section">
+    <button (click)="toggleForm()" class="toggle-form-button">
+      {{ showForm ? 'Chiudi Form' : 'Aggiungi Allenamento' }}
+    </button>
+
+    <form *ngIf="showForm" (ngSubmit)="creaAllenamento()" class="allenamento-form">
+      <ul class="list-group mb-4">
+        <li *ngFor="let squadra of squadre"
+            class="list-group-item d-flex justify-content-between align-items-center"
+            [class.selected]="isSelected(squadra.id)"
+            (click)="selezionaSquadra(squadra.id)"
+            style="cursor: pointer;">
+          <div class="d-flex flex-column">
+            <strong class="text-dark">{{ squadra.name }}</strong>
+            <small class="text-muted">Atlete IDs: {{ squadra.id_atlete.join(', ') }}</small>
+          </div>
+        </li>
+      </ul>
+
+      <label for="data_inizio">Data Inizio:</label>
+      <input type="datetime-local" id="data_inizio" name="data_inizio"
+             [(ngModel)]="nuovoAllenamento.data_inizio" required />
+
+      <label for="data_fine">Data Fine:</label>
+      <input type="datetime-local" id="data_fine" name="data_fine"
+             [(ngModel)]="nuovoAllenamento.data_fine" required />
+
+      <button type="submit">Salva</button>
+    </form>
+
+    <div class="filter-section">
+      <label for="startDate">Da:</label>
+      <input type="date" name="startDate" [(ngModel)]="filtroInizio" />
+
+      <label for="endDate">A:</label>
+      <input type="date" name="endDate" [(ngModel)]="filtroFine" />
+
+      <button (click)="filtraAllenamenti()">Filtra</button>
+    </div>
+  </div>
+
+  <div class="lista-allenamenti">
+    <h2>Allenamenti</h2>
+    <ul>
+      <li *ngFor="let allenamento of allenamenti">
+        <strong>{{ allenamento.data_inizio | date: 'short' }}</strong> -
+        <strong>{{ allenamento.data_fine | date: 'short' }}</strong><br />
+        Squadra: {{ getNomeSquadra(allenamento.id_squadra) }}
+      </li>
+    </ul>
+  </div>
+</div>

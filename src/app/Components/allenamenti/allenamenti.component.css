@@ -1,0 +1,104 @@
+
+.allenamenti-container {
+  flex: 1; /* prende tutto lo spazio rimasto */
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-left: 276px;
+  margin-top: -750px;
+}
+
+/* Sezioni interne */
+.form-section {
+  flex: 1;
+  max-width: 400px;
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.toggle-form-button {
+  background-color: #004085;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+
+.toggle-form-button:hover {
+  background-color: #0056b3;
+}
+
+.allenamento-form label,
+.filter-section label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+.allenamento-form input,
+.allenamento-form select,
+.filter-section input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 0.3rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.allenamento-form button,
+.filter-section button {
+  margin-top: 1rem;
+  width: 100%;
+  padding: 10px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.allenamento-form button:hover,
+.filter-section button:hover {
+  background-color: #218838;
+}
+
+.filter-section {
+  margin-top: 2rem;
+}
+
+.lista-allenamenti {
+  flex: 1;
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.lista-allenamenti h2 {
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.lista-allenamenti ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.lista-allenamenti li {
+  padding: 1rem;
+  border-bottom: 1px solid #e0e0e0;
+  line-height: 1.5;
+}
+
+.list-group-item.selected {
+  background-color: #d1ecf1;
+  border-color: #bee5eb;
+  font-weight: bold;
+}

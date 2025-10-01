@@ -1,28 +1,23 @@
-<div class="navbar-left">
-  <img src="assets/images/pngtree-white-house-architecture-design-image_1335029-removebg-preview.png" id="home-img">
-  <div class="home"><label class="label-text">Home</label></div>
-
-  <img src="assets/images/depositphotos_232794498-stock-illustration-simple-calendar-icon-white-icon-removebg-preview.png" id="calendar-image">
-  <div class="calendar"><button routerLink="/calendar" class="button">Calendar</button></div>
-
-  <img src="assets/images/25851934-bianca-icona-di-corridore-silhouette-su-nero-sfondo-sport-logo-modello-jogging-o-salto-moderno-logotipo-concetto-magliette-stampa-tatuagg-removebg-preview.png" id="atleta-img">
-  <div class="gestisci-atlete"><button routerLink="/atlete" class="button">Gestisci Atlete</button></div>
-
-  <img src="assets/images/5298178-icona-colore-bianco-concetto-di-squadra-lavorare-insieme-vettoriale-removebg-preview.png" id="squad-image">
-  <div class="gestisci-squadre"><button routerLink="/squadre" class="button">Gestisci Squadre</button></div>
-
-  <img src="assets/images/39361120-pallavolo-palla-gioco-partita-icona-dello-sport-immagine-vettoriale-può-essere-utilizzato-anche-removebg-preview.png" id="workout-img">
-  <div class="programma-allenamenti"><label class="label-text">Allenamenti</label></div>
-</div>
-
 <div class="main-content">
   <div class="card-container">
     <h2 class="mb-4 text-center text-primary">Elenco Squadre</h2>
 
     <ul class="list-group mb-4">
-      <li *ngFor="let squadra of squadre" class="list-group-item d-flex flex-column align-items-start">
-        <strong class="text-dark">{{ squadra.name }}</strong>
-        <small class="text-muted">Atlete IDs: {{ squadra.id_atlete.join(', ') }}</small>
+      <li *ngFor="let squadra of squadre" class="list-group-item d-flex justify-content-between align-items-center">
+        <div class="d-flex flex-column">
+          <strong class="text-dark">{{ squadra.name }}</strong>
+          <small class="text-muted">Atlete IDs: {{ squadra.id_atlete.join(', ') }}</small>
+        </div>
+
+        <div class="d-flex gap-2 align-items-center">
+          <button class="btn btn-link text-primary p-0" (click)="apriEditorSquadra(squadra)" title="Modifica squadra">
+            ✏️
+          </button>
+          <button class="btn btn-link text-danger p-0" (click)="chiediConfermaEliminazione(squadra)"
+            title="Elimina squadra">
+            🗑️
+          </button>
+        </div>
       </li>
     </ul>
 
@@ -36,17 +31,52 @@
       <div *ngIf="showAtleteList" class="atlete-list-box">
         <h5 class="mb-2 text-center">Seleziona Atlete</h5>
         <div class="list-group">
-          <button
-            *ngFor="let atleta of elencoAtlete"
-            class="list-group-item list-group-item-action"
-            [class.active]="isSelected(atleta.id)"
-            (click)="toggleAtletaSelection(atleta.id)">
+          <button *ngFor="let atleta of elencoAtlete" class="list-group-item list-group-item-action"
+            [class.active]="isSelected(atleta._id)" (click)="toggleAtletaSelection(atleta._id)">
             {{ atleta.name }} {{ atleta.lastname }}
           </button>
         </div>
       </div>
 
       <button class="btn btn-success w-100 mt-3" (click)="aggiungiSquadra()">✅ Salva</button>
+    </div>
+
+    <div *ngIf="showEditor" class="card p-3 mt-4 border border-primary-subtle rounded">
+      <h5 class="mb-3 text-primary text-center">Modifica squadra: {{ squadraDaModificare.name }}</h5>
+
+      <div class="list-group mb-3">
+        <button *ngFor="let atleta of elencoAtlete"
+          class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
+          [class.active]="atletaSelezionatoSingolo?._id === atleta._id" (click)="selezionaAtletaSingolo(atleta)">
+          {{ atleta.name }} {{ atleta.lastname }}
+        </button>
+      </div>
+
+      <div *ngIf="atletaSelezionatoSingolo" class="alert alert-info text-center">
+        Selezionato: <strong>{{ atletaSelezionatoSingolo.name }} {{ atletaSelezionatoSingolo.lastname }}</strong><br>
+        <small>{{ messaggioErrore }}</small>
+      </div>
+
+      <div class="d-flex justify-content-between">
+        <button class="btn btn-outline-success w-100 me-2" (click)="aggiungiAtletaSingolo()">➕ Aggiungi</button>
+        <button class="btn btn-outline-danger w-100 ms-2" (click)="rimuoviAtletaSingolo()">➖ Rimuovi</button>
+      </div>
+
+      <div class="d-flex justify-content-between mt-3">
+        <button class="btn btn-secondary" (click)="showEditor = false">Annulla</button>
+        <button class="btn btn-success" (click)="caricaSquadre(); showEditor = false">🔄 Aggiorna</button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="showConfirmDelete" class="modal-overlay">
+    <div class="modal-box">
+      <h5>Conferma Eliminazione</h5>
+      <p>Sei sicuro di voler eliminare la squadra <strong>{{ squadraDaEliminare?.name }}</strong>?</p>
+      <div class="d-flex justify-content-end gap-2">
+        <button class="btn btn-secondary" (click)="annullaEliminazione()">Annulla</button>
+        <button class="btn btn-danger" (click)="confermaEliminazione()">Conferma</button>
+      </div>
     </div>
   </div>
 </div>

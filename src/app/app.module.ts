@@ -8,6 +8,8 @@ import { CalendarComponentComponent } from './Components/calendar-component/cale
 import { HomeComponentComponent } from './Components/home-component/home-component.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SquadraComponent } from './Components/squadra/squadra.component';
+import { AllenamentiComponent } from './Components/allenamenti/allenamenti.component';
+import { NavbarComponent } from './Components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { SquadraComponent } from './Components/squadra/squadra.component';
     AtleteComponentComponent,
     CalendarComponentComponent,
     HomeComponentComponent,
-    SquadraComponent
+    SquadraComponent,
+    AllenamentiComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
